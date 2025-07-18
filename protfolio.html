@@ -1,99 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supriya R | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fc;
-      color: #333;
-    }
-    header {
-      background: #1a202c;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: #90cdf4;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
-      border-radius: 0.75rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    h2 {
-      color: #2d3748;
-    }
-    .project {
-      margin-bottom: 1.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #e2e8f0;
-      margin-top: 2rem;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Supriya Ramaswamy | Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <header>
-    <h1>Supriya R</h1>
-    <p>Wireless & Embedded Systems | Researcher | Developer</p>
+    <h1>Supriya Ramaswamy</h1>
+    <p>Wireless & Network Engineer | 5G | IoT | RF Systems</p>
     <nav>
       <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I’m currently pursuing a Master's in Wireless and Network Engineering at Northeastern University and working on research in 5G/6G, embedded systems, and IoT. My experience spans firmware development, network protocol emulation, and antenna design. I aim to combine my skills in hardware and software for impactful R&D in wireless communication.</p>
-  </section>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a passionate wireless and network engineering professional with a dual Master’s background, hands-on experience in 5G, IoT, and RF systems, and a solid foundation in embedded systems, circuit design, and simulation. I bring a multidisciplinary research and teaching perspective to real-world network analysis and prototyping.
+      </p>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>ML Training Framework on FPGA</h3>
-      <p>Designed a C++ and Python-based ML training framework on Xilinx FPGA for edge IoT applications with wireless integration.</p>
-    </div>
-    <div class="project">
-      <h3>Smart Antenna Beamforming</h3>
-      <p>Published a paper on smart antenna systems for beamforming using MATLAB simulations and real-time implementation models.</p>
-    </div>
-    <div class="project">
-      <h3>IoT Firmware for Real-Time Monitoring</h3>
-      <p>Built a robust sensor firmware stack using STM32, C, and MQTT for a critical infrastructure use-case deployed with ISRO standards.</p>
-    </div>
-  </section>
+    <section id="skills">
+      <h2>Skills Summary</h2>
+      <ul>
+        <li><strong>Wireless:</strong> 5G NR, LTE, IEEE 802.11, TCP/IP, AODV</li>
+        <li><strong>Simulation:</strong> Ansys HFSS, Cadence Virtuoso, OAIBOX™, ns-3, GNU Radio</li>
+        <li><strong>Programming:</strong> Python, C/C++, MATLAB, Bash</li>
+        <li><strong>Tools:</strong> Git, Linux, Docker, Visual Studio Code</li>
+        <li><strong>Analysis:</strong> Wireshark, tcpdump, RF modeling, MAC/RLC logs</li>
+      </ul>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: supriya.r@example.com</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/supriyar" target="_blank">linkedin.com/in/supriyar</a></p>
-    <p>GitHub: <a href="https://github.com/supriyar" target="_blank">github.com/supriyar</a></p>
-  </section>
+    <section id="projects">
+      <h2>Highlighted Projects</h2>
+      <div class="project">
+        <h3>5G Link Performance Analysis</h3>
+        <p>Used OAIBOX™ and Python to evaluate uplink/downlink KPIs across urban conditions. Focused on SINR, RSRP, and throughput under LoS/NLoS scenarios.</p>
+      </div>
+      <div class="project">
+        <h3>Wi-Fi RTS/CTS Behavior in ns-3</h3>
+        <p>Simulated RTS/CTS mechanisms in ad-hoc and infrastructure modes. Assessed impact on collision avoidance and association. Used Wireshark and UDP Echo tools.</p>
+      </div>
+      <div class="project">
+        <h3>CMOS LNA Design Using 7RFSOI</h3>
+        <p>Designed and validated a CMOS LNA with gain optimization and < 1.2 dB noise figure. Simulated with Cadence Spectre for 2.5 GHz operation.</p>
+      </div>
+      <p><a href="#projects-full">View Full Project List</a></p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Northeastern University</strong> — MS in Wireless & Network Engineering (2025–2026)</li>
+        <li><strong>Texas Tech University</strong> — MS in Electrical Engineering (2017–2019)</li>
+        <li><strong>Christ University</strong> — M.Tech in Communication Systems (2014–2016)</li>
+        <li><strong>AP College of Engineering</strong> — BE in ECE (2009–2011)</li>
+      </ul>
+    </section>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <div class="exp">
+        <h3>Project Associate – ISRO/NMIT</h3>
+        <p>Designed RHCP triple-band antenna for NavIC systems. Achieved 6 dBi gain with < 2 dB axial ratio. Tools: Ansys HFSS, Patch Antenna Design</p>
+      </div>
+      <div class="exp">
+        <h3>IoT Engineer – Datashrubs Solutions</h3>
+        <p>Developed firmware for smart water bottle prototypes using I2C, SPI. Improved success rate by 90% through cross-functional debugging and testing.</p>
+      </div>
+      <div class="exp">
+        <h3>Graduate Research Assistant – Texas Tech University</h3>
+        <p>Worked on RF-based non-contact sensors for vital signs monitoring. Involved in prototyping, signal processing, and embedded system design.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:supriya@email.com">supriya@email.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/supriya" target="_blank">linkedin.com/in/supriya</a></p>
+      <p>GitHub: <a href="https://github.com/supriya" target="_blank">github.com/supriya</a></p>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Supriya R. All rights reserved.</p>
+    <p>&copy; 2025 Supriya Ramaswamy</p>
   </footer>
 </body>
 </html>
