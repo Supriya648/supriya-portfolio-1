@@ -13,6 +13,20 @@ header {
   padding: 2rem 1rem;
   border-bottom: 1px solid #ccc;
 }
+.presentation{
+  height:501px;
+  width:500px;
+  position:absolute;
+  top:10%;
+  left: 15%;
+}
+.pres{
+  height: 500px;
+width: 50%;
+position: absolute;
+top: 50px;
+left: 59px;
+}
 .photo{
   top: 0;
 left: 0;
