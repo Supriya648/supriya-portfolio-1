@@ -18,7 +18,17 @@ header h1 {
   margin: 0;
   font-size: 2.2rem;
 }
-
+.photo{
+  top: 0;
+left: 0;
+height: 200px;
+position: absolute;
+width: 183.2px;
+}
+.ph{
+  height: 100px;
+  width: 100px;
+}
 header nav {
   margin-top: 1rem;
 }
