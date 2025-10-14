@@ -1,0 +1,87 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid #ccc;
+}
+.presentation{
+  margin-bottom: 2rem;
+  height:501px;
+  width:500px;
+  position:absolute;
+  top:10%;
+  left: 15%;
+}
+.pres{
+  height: 500px;
+width: 50%;
+position: absolute;
+top: 50px;
+left: 59px;
+}
+.photo{
+  top: 0;
+left: 0;
+height: 200px;
+position: absolute;
+width: 183.2px;
+}
+.ph{
+  height: 100px;
+  width: 100px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+header nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #007acc;
+  font-weight: bold;
+}
+
+main {
+  padding: 2rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+h2 {
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project, .exp {
+  margin-bottom: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
+}
+
