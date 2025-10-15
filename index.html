@@ -1,106 +1,1149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Supriya Ramaswamy | Portfolio</title>
-    <link rel="stylesheet" href="./style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supriya Ramaswamy | RF/Wireless Engineer Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f172a);
+    }
+    .bg-animation::before, .bg-animation::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: .25;
+      animation: float 25s ease-in-out infinite;
+    }
+    .bg-animation::before {
+      background: #667eea;
+      top: -250px;
+      left: -250px;
+    }
+    .bg-animation::after {
+      background: #22d3ee;
+      bottom: -250px;
+      right: -250px;
+      animation-delay: -12s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(120px, -120px); }
+      66% { transform: translate(-120px, 120px); }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, .95);
+      backdrop-filter: blur(15px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(102, 126, 234, .25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: pointer;
+      transition: all .3s;
+    }
+    .logo:hover { transform: scale(1.1); }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 600;
+      padding: .7rem 1.3rem;
+      border-radius: 10px;
+      transition: all .3s;
+      position: relative;
+    }
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity .3s;
+      z-index: -1;
+    }
+    .nav-links a:hover {
+      color: #fff;
+    }
+    .nav-links a:hover::before {
+      opacity: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+    }
+    .hero-content {
+      max-width: 950px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hero-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto 2.5rem;
+      border: 6px solid rgba(102, 126, 234, .4);
+      overflow: hidden;
+      box-shadow: 0 15px 60px rgba(102, 126, 234, .5);
+      animation: floatImg 6s ease-in-out infinite;
+      position: relative;
+    }
+    @keyframes floatImg {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, .15), transparent);
+      transform: rotate(45deg);
+      animation: shine 4s infinite;
+    }
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .badge {
+      display: inline-block;
+      padding: .7rem 2rem;
+      background: rgba(102, 126, 234, .25);
+      border: 2px solid rgba(102, 126, 234, .4);
+      border-radius: 50px;
+      color: #93c5fd;
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+    h1 {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #667eea, #22d3ee, #764ba2, #667eea);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0%; }
+      50% { background-position: 100%; }
+    }
+    .hero p {
+      font-size: 1.35rem;
+      color: #cbd5e1;
+      margin-bottom: 2.5rem;
+      line-height: 1.9;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+      transition: transform .3s;
+    }
+    .stat:hover {
+      transform: scale(1.15);
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      color: #94a3b8;
+      margin-top: .5rem;
+      font-size: 1rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .social-links a {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(102, 126, 234, .2);
+      border: 2px solid rgba(102, 126, 234, .4);
+      border-radius: 50%;
+      color: #93c5fd;
+      font-size: 1.8rem;
+      text-decoration: none;
+      transition: all .5s;
+    }
+    .social-links a:hover {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      transform: translateY(-15px) rotate(360deg);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, .6);
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-secondary {
+      padding: 1.4rem 3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.15rem;
+      transition: all .4s;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      box-shadow: 0 10px 35px rgba(102, 126, 234, .5);
+    }
+    .btn-primary:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 60px rgba(102, 126, 234, .7);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #93c5fd;
+      border: 2px solid rgba(102, 126, 234, .6);
+    }
+    .btn-secondary:hover {
+      background: rgba(102, 126, 234, .25);
+      transform: translateY(-8px) scale(1.05);
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 3.5rem;
+      text-align: center;
+      margin-bottom: 5rem;
+      background: linear-gradient(135deg, #667eea, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, #667eea, #22d3ee);
+      border-radius: 2px;
+    }
+
+    /* About */
+    .about-content {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 3.5rem;
+      background: rgba(30, 41, 59, .6);
+      backdrop-filter: blur(15px);
+      border-radius: 30px;
+      border: 2px solid rgba(102, 126, 234, .3);
+      transition: all .5s;
+    }
+    .about-content:hover {
+      border-color: rgba(102, 126, 234, .6);
+      box-shadow: 0 25px 70px rgba(102, 126, 234, .4);
+      transform: scale(1.03);
+    }
+    .about-content p {
+      font-size: 1.25rem;
+      line-height: 2.1;
+      color: #cbd5e1;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+    .skill-card {
+      background: rgba(30, 41, 59, .6);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      padding: 3rem;
+      border: 2px solid rgba(102, 126, 234, .3);
+      transition: all .5s;
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: radial-gradient(circle, rgba(102, 126, 234, .15), transparent);
+      opacity: 0;
+      transition: all .6s;
+    }
+    .skill-card:hover::before {
+      opacity: 1;
+      top: -50%;
+      left: -50%;
+      animation: rotate 15s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .skill-card:hover {
+      transform: translateY(-20px) scale(1.08);
+      border-color: rgba(102, 126, 234, .7);
+      box-shadow: 0 25px 70px rgba(102, 126, 234, .5);
+    }
+    .skill-card h3 {
+      color: #667eea;
+      margin-bottom: 2rem;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .skill-card i {
+      font-size: 2.5rem;
+      color: #22d3ee;
+    }
+    .skill-list {
+      color: #cbd5e1;
+      line-height: 2.2;
+      font-size: 1.05rem;
+    }
+
+    /* Projects Mega Cards */
+    .project-mega-card {
+      background: rgba(30, 41, 59, .6);
+      backdrop-filter: blur(15px);
+      border-radius: 35px;
+      overflow: hidden;
+      border: 2px solid rgba(102, 126, 234, .3);
+      margin-bottom: 5rem;
+      transition: all .6s;
+    }
+    .project-mega-card:hover {
+      transform: scale(1.03) translateY(-10px);
+      border-color: rgba(102, 126, 234, .7);
+      box-shadow: 0 35px 90px rgba(102, 126, 234, .5);
+    }
+    .project-hero {
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, .05), transparent);
+      transform: translateX(-100%);
+      transition: transform .8s;
+    }
+    .project-mega-card:hover .project-hero::before {
+      transform: translateX(100%);
+    }
+    .project-hero.rf {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    }
+    .project-hero.ic {
+      background: linear-gradient(135deg, #581c87, #a855f7);
+    }
+    .project-hero.power {
+      background: linear-gradient(135deg, #991b1b, #f97316);
+    }
+    .project-body {
+      padding: 3.5rem;
+    }
+    .project-title-large {
+      font-size: 2.2rem;
+      color: #93c5fd;
+      margin-bottom: 1.5rem;
+    }
+    .project-meta-large {
+      display: flex;
+      gap: 2.5rem;
+      color: #64748b;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      font-size: 1.05rem;
+    }
+    .project-description-large {
+      font-size: 1.15rem;
+      line-height: 2;
+      color: #cbd5e1;
+      margin: 2.5rem 0;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .metric-box {
+      background: rgba(102, 126, 234, .15);
+      padding: 2rem;
+      border-radius: 20px;
+      border-left: 5px solid #667eea;
+      transition: all .4s;
+      text-align: center;
+    }
+    .metric-box:hover {
+      transform: translateY(-10px) scale(1.05);
+      background: rgba(102, 126, 234, .25);
+      border-left-color: #22d3ee;
+      box-shadow: 0 15px 40px rgba(102, 126, 234, .4);
+    }
+    .metric-label {
+      font-size: .9rem;
+      color: #94a3b8;
+      margin-bottom: .8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #22d3ee;
+      margin-bottom: .5rem;
+    }
+    .metric-sub {
+      font-size: .85rem;
+      color: #64748b;
+      margin-top: .3rem;
+    }
+    .project-tags-large {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    .tag-large {
+      padding: .8rem 1.8rem;
+      background: rgba(102, 126, 234, .25);
+      border: 1px solid rgba(102, 126, 234, .4);
+      border-radius: 30px;
+      color: #93c5fd;
+      font-size: 1rem;
+      transition: all .3s;
+    }
+    .tag-large:hover {
+      background: rgba(102, 126, 234, .4);
+      transform: scale(1.15);
+      box-shadow: 0 5px 20px rgba(102, 126, 234, .4);
+    }
+    .project-actions-large {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .action-btn {
+      flex: 1;
+      min-width: 220px;
+      padding: 1.4rem 2.5rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      transition: all .5s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 1.05rem;
+    }
+    .action-btn.primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      box-shadow: 0 10px 40px rgba(102, 126, 234, .5);
+    }
+    .action-btn.primary:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 60px rgba(102, 126, 234, .7);
+    }
+    .action-btn.secondary {
+      background: rgba(102, 126, 234, .2);
+      color: #93c5fd;
+      border: 2px solid rgba(102, 126, 234, .4);
+    }
+    .action-btn.secondary:hover {
+      background: rgba(102, 126, 234, .35);
+      transform: translateY(-8px) scale(1.05);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #667eea, #22d3ee, #764ba2);
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 4rem;
+      padding-left: 2.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -4.5rem;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: #667eea;
+      border: 5px solid #0f172a;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(102, 126, 234, .6);
+      transition: all .4s;
+    }
+    .timeline-item:hover::before {
+      background: #22d3ee;
+      transform: scale(1.6);
+      box-shadow: 0 0 35px rgba(34, 211, 238, .9);
+    }
+    .timeline-content {
+      background: rgba(30, 41, 59, .6);
+      backdrop-filter: blur(15px);
+      padding: 2.5rem;
+      border-radius: 25px;
+      border: 2px solid rgba(102, 126, 234, .3);
+      transition: all .4s;
+    }
+    .timeline-content:hover {
+      transform: translateX(25px);
+      border-color: rgba(102, 126, 234, .6);
+      box-shadow: 0 20px 60px rgba(102, 126, 234, .4);
+    }
+    .timeline-title {
+      color: #93c5fd;
+      font-size: 1.6rem;
+      margin-bottom: .8rem;
+    }
+    .timeline-subtitle {
+      color: #94a3b8;
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+    .timeline-text {
+      color: #cbd5e1;
+      line-height: 1.9;
+      font-size: 1.05rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .contact-card {
+      background: rgba(30, 41, 59, .6);
+      backdrop-filter: blur(15px);
+      padding: 3rem;
+      border-radius: 25px;
+      border: 2px solid rgba(102, 126, 234, .3);
+      text-align: center;
+      transition: all .5s;
+    }
+    .contact-card:hover {
+      transform: translateY(-20px);
+      border-color: rgba(102, 126, 234, .7);
+      box-shadow: 0 25px 70px rgba(102, 126, 234, .5);
+    }
+    .contact-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 2rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      transition: all .6s;
+      box-shadow: 0 10px 35px rgba(102, 126, 234, .4);
+    }
+    .contact-card:hover .contact-icon {
+      transform: scale(1.3) rotate(360deg);
+      box-shadow: 0 15px 50px rgba(102, 126, 234, .7);
+    }
+    .contact-card h3 {
+      color: #93c5fd;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+    }
+    .contact-card a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: all .3s;
+    }
+    .contact-card a:hover {
+      color: #22d3ee;
+    }
+
+    /* Slides Section */
+    .slides-section {
+      background: rgba(30, 41, 59, .4);
+      border-radius: 30px;
+      border: 2px solid rgba(102, 126, 234, .25);
+      padding: 4rem 2rem;
+      margin-top: 5rem;
+    }
+    .slides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .slide-card {
+      background: rgba(30, 41, 59, .6);
+      border-radius: 25px;
+      padding: 2rem;
+      border: 2px solid rgba(102, 126, 234, .3);
+      transition: all .4s;
+    }
+    .slide-card:hover {
+      transform: scale(1.02);
+      border-color: rgba(102, 126, 234, .6);
+      box-shadow: 0 20px 60px rgba(102, 126, 234, .4);
+    }
+    .slide-card h3 {
+      color: #667eea;
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .slide-card iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 15px;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3.5rem 2rem;
+      background: rgba(15, 23, 42, .9);
+      border-top: 2px solid rgba(102, 126, 234, .3);
+      color: #94a3b8;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      .hero-image { width: 150px; height: 150px; }
+      .hero-stats { gap: 2rem; }
+      .stat-number { font-size: 2.2rem; }
+      .nav-links { gap: .8rem; font-size: .9rem; }
+      .project-hero { height: 220px; }
+      .slides-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-secondary { width: 100%; }
+      .section-title { font-size: 2.5rem; }
+    }
+  </style>
+</head>
 <body>
-  <header>
-    <h1>Supriya Ramaswamy</h1>
-    <a href="/presentation.html"> link </a>
-    <p>Wireless & Network Engineer | 5G | IoT | RF Systems</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class = "photo">
-      <img class = "ph" src="sup.png" alt ="hi">
+  <div class="bg-animation"></div>
+
+  <nav>
+    <div class="nav-container">
+      <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">SR</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-image">
+        <img src="sup.png" alt="Supriya Ramaswamy">
+      </div>
+      <div class="badge">
+        <i class="fas fa-signal"></i> RF/Wireless Engineer • 5G • RFIC
+      </div>
+      <h1>Supriya Ramaswamy</h1>
       <p>
-        I am a passionate wireless and network engineering professional with a dual Master’s background, hands-on experience in 5G, IoT, and RF systems, and a solid foundation in embedded systems, circuit design, and simulation. I bring a multidisciplinary research and teaching perspective to real-world network analysis and prototyping.
+        MS Wireless & Network Engineering at Northeastern University<br>
+        RFIC Designer • 5G Systems Engineer • Previously with Indian Space Research Organization (ISRO)
       </p>
-    </section>
-  
 
-    <section id="skills">
-      <h2>Skills Summary</h2>
-      <ul>
-        <li><strong>Wireless:</strong> 5G NR, LTE, IEEE 802.11, TCP/IP, AODV</li>
-        <li><strong>Simulation:</strong> Ansys HFSS, Cadence Virtuoso, OAIBOX™, ns-3, GNU Radio</li>
-        <li><strong>Programming:</strong> Python, C/C++, MATLAB, Bash</li>
-        <li><strong>Tools:</strong> Git, Linux, Visual Studio Code</li>
-        <li><strong>Analysis:</strong> Wireshark, tcpdump, RF modeling, MAC/RLC logs</li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Highlighted Projects</h2>
-      <div class="project">
-        <h3>5G Link Performance Analysis</h3>
-        <p>Used OAIBOX™ and Python to evaluate uplink/downlink KPIs across urban conditions. Focused on SINR, RSRP, and throughput under LoS/NLoS scenarios.</p>
-      </div>
-      <div class="project">
-        <h3>Wi-Fi RTS/CTS Behavior in ns-3</h3>
-        <p>Simulated RTS/CTS mechanisms in ad-hoc and infrastructure modes. Assessed impact on collision avoidance and association. Used Wireshark and UDP Echo tools.</p>
-      </div>
-      <div class="project">
-        <h3>CMOS LNA Design Using 7RFSOI</h3>
-        <p>Designed and validated a CMOS LNA with gain optimization and < 1.2 dB noise figure. Simulated with Cadence Spectre for 2.5 GHz operation.</p>
-      </div>
-      <p>
-        <a href="projects.html" style="display: inline-block; margin-top: 2rem; padding: 1rem 2rem; background: #3b82f6; color: #fff; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s;">
-          <i class="fas fa-folder-open"></i> View Full Projects Gallery →
+      <div class="social-links">
+        <a href="mailto:ramaswamy.su@northeastern.edu" title="Email">
+          <i class="fas fa-envelope"></i>
         </a>
+        <a href="https://www.linkedin.com/in/supriya-ramaswamy" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/Supriya648" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="#projects" class="btn-primary">
+          <i class="fas fa-rocket"></i> Explore My Work
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <i class="fas fa-paper-plane"></i> Get In Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <p>
+        I'm a passionate wireless and network engineering professional with extensive experience in 5G systems, RFIC design, and RF engineering. My work spans designing CMOS LNAs using advanced process nodes, analyzing 5G network performance with OAIBOX, and developing satellite communication antennas for ISRO. I combine simulation expertise (Cadence, HFSS, AWR) with hands-on prototyping and real-world network analysis.
       </p>
-    </section>
+    </div>
+  </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>Northeastern University</strong> — MS in Wireless & Network Engineering (2025–2026)</li>
-        <li><strong>Texas Tech University</strong> — MS in Electrical Engineering (2017–2019)</li>
-        <li><strong>Christ University</strong> — M.Tech in Communication Systems (2014–2016)</li>
-        <li><strong>APS College of Engineering</strong> — BE in ECE (2007–2011)</li>
-      </ul>
-    </section>
+  <section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3><i class="fas fa-microchip"></i> Design Tools</h3>
+        <div class="skill-list">Cadence Virtuoso • Ansys HFSS • AWR • Altium Designer • LTspice • Eagle CAD</div>
+      </div>
+      <div class="skill-card">
+        <h3><i class="fas fa-broadcast-tower"></i> RF/Wireless</h3>
+        <div class="skill-list">5G NR • LTE • MIMO • OFDM • IEEE 802.11 • MAC/RLC/PDCP</div>
+      </div>
+      <div class="skill-card">
+        <h3><i class="fas fa-code"></i> Programming</h3>
+        <div class="skill-list">Python • C/C++ • MATLAB • LabVIEW</div>
+      </div>
+      <div class="skill-card">
+        <h3><i class="fas fa-network-wired"></i> Platforms</h3>
+        <div class="skill-list">ns-3 • Wireshark • OAIBOX • Linux • Git • Colosseum SDR</div>
+      </div>
+    </div>
+  </section>
 
-    <section id="experience">
-      <h2>Professional Experience</h2>
-      <div class="exp">
-        <h3>Project Associate – ISRO/NMIT</h3>
-        <p>Designed RHCP triple-band antenna for NavIC systems. Achieved 6 dBi gain with < 2 dB axial ratio. Tools: Ansys HFSS, Patch Antenna Design</p>
-      </div>
-      <div class="exp">
-        <h3>IoT Engineer – Datashrubs Solutions Pvt Ltd</h3>
-        <p>Developed firmware for smart water bottle prototypes using I2C, SPI. Improved success rate by 90% through cross-functional debugging and testing.</p>
-      </div>
-      <div class="exp">
-        <h3>Graduate Research Assistant – Texas Tech University</h3>
-        <p>Worked on RF-based non-contact sensors for vital signs monitoring. Involved in prototyping, signal processing, and embedded system design.</p>
-      </div>
-    </section>
+  <section id="projects">
+    <h2 class="section-title">Featured Projects</h2>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:supriya.r.ramaswamy@gmail.com">supriya.r.ramaswamy@gmail.com</a></p>
-      <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/supriya-ramaswamy" target="_blank">linkedin.com/in/supriya-ramaswamy</a></p>
-      <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Supriya648" target="_blank">github.com/Supriya648</a></p>
-    </section>
+    <!-- Project 1 -->
+    <div class="project-mega-card">
+      <div class="project-hero rf">
+        <svg viewBox="0 0 400 200" style="width:100%;height:100%">
+          <defs><linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#60a5fa" stop-opacity="0.9"/><stop offset="100%" stop-color="#3b82f6" stop-opacity="0.3"/></linearGradient></defs>
+          <rect x="80" y="80" width="8" height="100" fill="url(#g1)" opacity="0.4"/>
+          <rect x="120" y="40" width="12" height="140" fill="url(#g1)"/>
+          <rect x="160" y="60" width="10" height="120" fill="url(#g1)" opacity="0.6"/>
+          <rect x="200" y="30" width="14" height="150" fill="url(#g1)"/>
+          <rect x="240" y="70" width="10" height="110" fill="url(#g1)" opacity="0.5"/>
+          <line x1="50" y1="180" x2="350" y2="180" stroke="#60a5fa" stroke-width="2" opacity="0.4"/>
+          <text x="200" y="195" fill="#cbd5e1" font-size="16" text-anchor="middle" font-weight="bold">5.8 GHz RF Spectrum</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title-large">Wireless Receiver System Design and Analysis using AWR Simulation</h3>
+        <div class="project-meta-large">
+          <span><i class="fas fa-calendar"></i> May 2018</span>
+          <span><i class="fas fa-university"></i> Texas Tech University</span>
+          <span><i class="fas fa-tools"></i> AWR Microwave Office</span>
+        </div>
+        <p class="project-description-large">
+          Designed and simulated a complete multi-stage RF receiver system including Band-Pass Filters, LNA, Image-Reject Filters, and Mixers. Performed theoretical hand calculations for key RF performance metrics (Noise Figure, IIP3, P1dB, SFDR) and ran AWR simulations to validate results, directly comparing analytical and simulated outcomes.
+        </p>
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <div class="metric-label">Noise Figure</div>
+            <div class="metric-value">3.985 dB</div>
+            <div class="metric-sub">Calculated: 3.8131 dB</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">IIP3</div>
+            <div class="metric-value">-13.41 dBm</div>
+            <div class="metric-sub">Calculated: -5.02 dBm</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">P1dB</div>
+            <div class="metric-value">-23.37 dBm</div>
+            <div class="metric-sub">Measured</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">SFDR</div>
+            <div class="metric-value">41.373 dB</div>
+            <div class="metric-sub">Calculated: 64.099 dB</div>
+          </div>
+        </div>
+        <div class="project-tags-large">
+          <span class="tag-large"><i class="fas fa-wave-square"></i> 5.8 GHz</span>
+          <span class="tag-large"><i class="fas fa-filter"></i> Multi-stage</span>
+          <span class="tag-large"><i class="fas fa-chart-line"></i> System Analysis</span>
+          <span class="tag-large"><i class="fas fa-calculator"></i> Hand Calculations</span>
+        </div>
+        <div class="project-actions-large">
+          <a href="https://docs.google.com/presentation/d/e/2PACX-1vRU2zDVU2lTMfla3qfCzGjk2_KzlEj7JM8tDgJXMp_ozgltfyvq8sgyWyAkzsaWY9y1rGDYfT8o1y5W/pub" class="action-btn primary" target="_blank">
+            <i class="fas fa-presentation"></i> View Full Presentation
+          </a>
+          <a href="presentation.html" class="action-btn secondary">
+            <i class="fas fa-images"></i> All Presentations
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-mega-card">
+      <div class="project-hero ic">
+        <svg viewBox="0 0 400 200" style="width:100%;height:100%">
+          <defs>
+            <pattern id="m1" patternUnits="userSpaceOnUse" width="20" height="20">
+              <rect width="20" height="20" fill="#7c3aed" opacity="0.3"/>
+              <rect width="18" height="18" x="1" y="1" fill="#a855f7" opacity="0.6"/>
+            </pattern>
+          </defs>
+          <rect x="50" y="30" width="80" height="60" fill="url(#m1)" stroke="#c084fc" stroke-width="2"/>
+          <rect x="140" y="30" width="100" height="60" fill="url(#m1)" stroke="#c084fc" stroke-width="2"/>
+          <rect x="250" y="30" width="90" height="60" fill="url(#m1)" stroke="#c084fc" stroke-width="2"/>
+          <rect x="50" y="100" width="120" height="70" fill="url(#m1)" stroke="#c084fc" stroke-width="2"/>
+          <rect x="180" y="100" width="160" height="70" fill="url(#m1)" stroke="#c084fc" stroke-width="2"/>
+          <line x1="90" y1="90" x2="90" y2="100" stroke="#e9d5ff" stroke-width="2"/>
+          <line x1="190" y1="90" x2="190" y2="100" stroke="#e9d5ff" stroke-width="2"/>
+          <text x="200" y="195" fill="#e9d5ff" font-size="14" text-anchor="middle" font-weight="bold">AMI06 CMOS Layout</text>
+        </svg>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title-large">Design of a PTAT Temperature Sensor Circuit and Layout</h3>
+        <div class="project-meta-large">
+          <span><i class="fas fa-calendar"></i> Dec 2017</span>
+          <span><i class="fas fa-university"></i> Texas Tech University</span>
+          <span><i class="fas fa-tools"></i> Cadence Virtuoso</span>
+        </div>
+        <p class="project-description-large">
+          Designed PTAT circuit using AMI06 CMOS with sub-threshold MOSFETs to reduce bias voltage and power consumption. Used high-gain OP-AMP to maintain matched gate voltages, achieving low line sensitivity and excellent temperature tracking.
+        </p>
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <div class="metric-label">Temp Slope</div>
+            <div class="metric-value">1040 ppm/°C</div>
+            <div class="metric-sub">Across all voltages</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Supply Range</div>
+            <div class="metric-value">1.6-3.0V</div>
+            <div class="metric-sub">Stable operation</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Phase Margin</div>
+            <div class="metric-value">72-120°</div>
+            <div class="metric-sub">Excellent stability</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">FOM</div>
+            <div class="metric-value">0.000401</div>
+            <div class="metric-sub">Figure of Merit</div>
+          </div>
+        </div>
+        <div class="project-tags-large">
+          <span class="tag-large"><i class="fas fa-microchip"></i> AMI06 CMOS</span>
+          <span class="tag-large"><i class="fas fa-layer-group"></i> IC Layout</span>
+          <span class="tag-large"><i class="fas fa-temperature-high"></i> PTAT</span>
+          <span class="tag-large"><i class="fas fa-ruler-combined"></i> Sub-threshold</span>
+        </div>
+        <div class="project-actions-large">
+          <a href="https://docs.google.com/presentation/d/e/2PACX-1vQaEIJoIXlclPfVtjpAsvp5-O7l5KR4iW6tiYFYLJZuko-Ci-or_OkQQI3nQU1wz9knZLII77ZLx_oL/pub" class="action-btn primary" target="_blank">
+            <i class="fas fa-presentation"></i> View Full Presentation
+          </a>
+          <a href="presentation.html" class="action-btn secondary">
+            <i class="fas fa-images"></i> All Presentations
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-mega-card">
+      <div class="project-hero power">
+        <svg viewBox="0 0 400 200" style="width:100%;height:100%">
+          <path d="M 50 150 L 50 50 L 100 50 L 100 150 L 130 150 L 130 50 L 180 50 L 180 150 L 210 150 L 210 50 L 260 50 L 260 150 L 290 150 L 290 50 L 340 50 L 340 150" fill="none" stroke="#f97316" stroke-width="3" opacity="0.9"/>
+          <path d="M 50 100 Q 100 95, 150 100 T 250 100 T 350 100" fill="none" stroke="#22d3ee" stroke-width="3"/>
+          <text x="30" y="60" fill="#fb923c" font-size="12">VGS</text>
+          <text x="30" y="105" fill="#22d3ee" font-size="12">VOUT</text>
+          <text x="200" y="190" fill="#fbbf24" font-size="14" text-anchor="middle" font-weight="bold">80 kHz PWM @ 93% Efficiency</text>
+          <circle cx="370" cy="80" r="15" fill="none" stroke="#fbbf24" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title-large">Design and Test of an Asynchronous Buck Converter</h3>
+        <div class="project-meta-large">
+          <span><i class="fas fa-calendar"></i> Dec 2018</span>
+          <span><i class="fas fa-university"></i> Texas Tech University</span>
+          <span><i class="fas fa-tools"></i> LTspice & MSP430</span>
+        </div>
+        <p class="project-description-large">
+          Designed voltage-mode buck converter with input filter to reduce ripple current. Implemented Type III compensator with MSP430G2235 microcontroller for feedback regulation and PWM control. Complete design, simulation, assembly, and testing.
+        </p>
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <div class="metric-label">Efficiency</div>
+            <div class="metric-value">93%</div>
+            <div class="metric-sub">Target: >85%</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Output</div>
+            <div class="metric-value">14V@1.17A</div>
+            <div class="metric-sub">Into 12Ω load</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Phase Margin</div>
+            <div class="metric-value">48.9°</div>
+            <div class="metric-sub">Gain: 22.4 dB</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Ripple</div>
+            <div class="metric-value">60 mV</div>
+            <div class="metric-sub">Output voltage</div>
+          </div>
+        </div>
+        <div class="project-tags-large">
+          <span class="tag-large"><i class="fas fa-bolt"></i> 80 kHz PWM</span>
+          <span class="tag-large"><i class="fas fa-microchip"></i> MSP430</span>
+          <span class="tag-large"><i class="fas fa-sliders-h"></i> Type III Comp</span>
+          <span class="tag-large"><i class="fas fa-cogs"></i> 33µH/22µF</span>
+        </div>
+        <div class="project-actions-large">
+          <a href="presentation.html" class="action-btn primary">
+            <i class="fas fa-presentation"></i> View Full Presentation
+          </a>
+          <a href="#projects" class="action-btn secondary">
+            <i class="fas fa-rocket"></i> More Projects
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Slides -->
+    <div class="slides-section">
+      <h2 class="section-title" style="font-size:2.5rem;margin-bottom:3rem">
+        <i class="fab fa-google"></i> Live Presentations
+      </h2>
+      <div class="slides-grid">
+        <div class="slide-card">
+          <h3><i class="fas fa-presentation"></i> Wireless Receiver System Design (AWR)</h3>
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRU2zDVU2lTMfla3qfCzGjk2_KzlEj7JM8tDgJXMp_ozgltfyvq8sgyWyAkzsaWY9y1rGDYfT8o1y5W/embed?start=false&loop=false" allowfullscreen></iframe>
+        </div>
+        <div class="slide-card">
+          <h3><i class="fas fa-presentation"></i> PTAT Temperature Sensor (Cadence)</h3>
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQaEIJoIXlclPfVtjpAsvp5-O7l5KR4iW6tiYFYLJZuko-Ci-or_OkQQI3nQU1wz9knZLII77ZLx_oL/embed?start=false&loop=false" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3 class="timeline-title">Project Associate – Indian Space Research Organization (ISRO)</h3>
+          <p class="timeline-subtitle">July 2023 - November 2023 • NITTE Meenakshi Institute, Bengaluru, India</p>
+          <p class="timeline-text">Designed triple-band stacked patch antenna for satellite communication achieving 6 dBi gain with RHCP and <2dB axial ratio using Ansys HFSS for L1, L5, and S bands.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3 class="timeline-title">IoT Engineer – Datashrubs Solutions</h3>
+          <p class="timeline-subtitle">December 2021 - August 2022 • Bengaluru, India</p>
+          <p class="timeline-text">Developed firmware using I2C/SPI/UART for smart devices, achieving 90% testing success rate. Created BOMs and functional specifications.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3 class="timeline-title">Graduate Research Assistant – Texas Tech</h3>
+          <p class="timeline-subtitle">August 2018 - December 2018 • Lubbock, TX</p>
+          <p class="timeline-text">Worked on RF-based non-contact sensors for vital signs monitoring with signal processing and embedded systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3 class="timeline-title">MS in Wireless & Network Engineering</h3>
+          <p class="timeline-subtitle">Northeastern University • Expected Dec 2026 • GPA: 3.26</p>
+          <p class="timeline-text">Global Learner Award Scholarship</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3 class="timeline-title">MS in Electrical Engineering</h3>
+          <p class="timeline-subtitle">Texas Tech University • May 2019 • GPA: 3.3</p>
+          <p class="timeline-text">Russell H. Seacat Jr. Scholarship</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3 class="timeline-title">M.Tech in Communication Systems</h3>
+          <p class="timeline-subtitle">Christ University • May 2016 • GPA: 7.02</p>
+          <p class="timeline-text">Published DOI:10.1109/ICCSP.2016.7754490</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <h3>Email</h3>
+        <a href="mailto:ramaswamy.su@northeastern.edu">ramaswamy.su@northeastern.edu</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+        <h3>LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/supriya-ramaswamy" target="_blank">in/supriya-ramaswamy</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fab fa-github"></i></div>
+        <h3>GitHub</h3>
+        <a href="https://github.com/Supriya648" target="_blank">github.com/Supriya648</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Supriya Ramaswamy</p>
+    <p>© 2025 Supriya Ramaswamy • RF/Wireless Engineer • Built with passion for innovation</p>
   </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      let nav = document.querySelector('nav');
+      if (window.scrollY > 100) {
+        nav.style.boxShadow = '0 10px 40px rgba(0,0,0,.4)';
+      } else {
+        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,.2)';
+      }
+    });
+  </script>
 </body>
 </html>
-
