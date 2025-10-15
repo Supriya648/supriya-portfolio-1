@@ -13,20 +13,20 @@ header {
   padding: 2rem 1rem;
   border-bottom: 1px solid #ccc;
 }
-.presentation{
-  margin-bottom: 3rem;
-  height:501px;
-  width:500px;
-  position:absolute;
-  top:10%;
-  left: 15%;
+.pres {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
-.pres{
-  height: 500px;
-width: 50%;
-position: absolute;
-top: 50px;
-left: 59px;
+
+.presentation {
+  margin-bottom: 3rem;
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: 569px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .photo{
   top: 0;
