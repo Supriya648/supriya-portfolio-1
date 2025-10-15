@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supriya Ramaswamy | RF/Wireless Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #60a5fa, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #60a5fa;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 2rem;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: rgba(59, 130, 246, 0.2);
+      border-radius: 50px;
+      color: #93c5fd;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #60a5fa, #22d3ee, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .hero-info span {
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.2);
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: rgba(59, 130, 246, 0.3);
+      transform: scale(1.1);
+    }
+
+    .scroll-indicator {
+      margin-top: 3rem;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    /* About Section */
+    .about-content {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .skill-card h3 {
+      color: #60a5fa;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: rgba(59, 130, 246, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .skill-tag:hover {
+      background: rgba(59, 130, 246, 0.3);
+    }
+
+    /* Certifications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cert-card {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 211, 238, 0.1));
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .cert-card:hover {
+      transform: scale(1.05);
+      border-color: rgba(34, 211, 238, 0.5);
+    }
+
+    .cert-card i {
+      font-size: 2rem;
+      color: #22d3ee;
+      margin-bottom: 1rem;
+    }
+
+    .cert-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-card .org {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .cert-card .date {
+      color: #60a5fa;
+      font-size: 0.9rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      color: #93c5fd;
+      font-size: 1.3rem;
+    }
+
+    .project-date {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    .project-card p {
+      color: #94a3b8;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-tag {
+      background: rgba(59, 130, 246, 0.2);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      color: #93c5fd;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: #3b82f6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(59, 130, 246, 0.3);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background: #3b82f6;
+      border-radius: 50%;
+    }
+
+    .exp-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .exp-card h3 {
+      color: #93c5fd;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-card .company {
+      color: #94a3b8;
+    }
+
+    .exp-card .period {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .exp-card ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .exp-card li {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .exp-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #60a5fa;
+    }
+
+    /* Education */
+    .education-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.3s;
+    }
+
+    .edu-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+    }
+
+    .edu-card h3 {
+      color: #93c5fd;
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-card .school {
+      color: #94a3b8;
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-card .location {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .edu-right {
+      text-align: right;
+    }
+
+    .edu-right .period {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .edu-right .gpa {
+      color: #60a5fa;
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+
+    .edu-card .note {
+      color: #22d3ee;
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    /* Contact */
+    .contact-content {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-content p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s;
+      min-width: 350px;
+      justify-content: center;
+    }
+
+    .contact-link:hover {
+      background: rgba(30, 41, 59, 1);
+      transform: scale(1.05);
+    }
+
+    .contact-link.primary {
+      background: #3b82f6;
+    }
+
+    .contact-link.primary:hover {
+      background: #2563eb;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(59, 130, 246, 0.2);
+      color: #64748b;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-info {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .contact-link {
+        min-width: auto;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">SR</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">RF/Wireless Engineer • 5G • RFIC</div>
+      <h1>Supriya Ramaswamy</h1>
+      <p>MS Wireless & Network Engineering student at Northeastern with expertise in 5G systems, RFIC design, and antenna engineering. Previously worked with ISRO on satellite communication systems.</p>
+      
+      <div class="hero-info">
+        <span><i class="fas fa-map-marker-alt"></i> Boston, MA</span>
+        <span><i class="fas fa-phone"></i> 617-785-9526</span>
+      </div>
+
+      <div class="social-links">
+        <a href="mailto:ramaswamy.su@northeastern.edu"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/supriya-ramaswamy" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Supriya648" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+
+      <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+        <i class="fas fa-chevron-down" style="font-size: 2rem;"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>I'm a passionate wireless and network engineering professional with extensive experience in 5G systems, RFIC design, and RF engineering. My work spans from designing CMOS LNAs using advanced process nodes to analyzing 5G network performance with OAIBOX and developing satellite communication antennas for ISRO. I bring a multidisciplinary approach combining simulation expertise (Cadence, HFSS, AWR) with hands-on prototyping and real-world network analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Design Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Cadence Virtuoso</span>
+            <span class="skill-tag">Ansys HFSS</span>
+            <span class="skill-tag">AWR</span>
+            <span class="skill-tag">Altium Designer</span>
+            <span class="skill-tag">LTspice</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>RF/Wireless</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">5G NR</span>
+            <span class="skill-tag">LTE</span>
+            <span class="skill-tag">MIMO</span>
+            <span class="skill-tag">OFDM</span>
+            <span class="skill-tag">IEEE 802.11</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Programming</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">LabVIEW</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Platforms</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">ns-3</span>
+            <span class="skill-tag">Wireshark</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Colosseum SDR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications">
+    <div class="container">
+      <h2>Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <i class="fas fa-certificate"></i>
+          <h3>5G Introductory Level</h3>
+          <p class="org">Qualcomm Wireless Academy</p>
+          <p class="date">August 2025</p>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-certificate"></i>
+          <h3>Spectrum & Network Analyzer Fundamentals</h3>
+          <p class="org">Rohde & Schwarz</p>
+          <p class="date">August 2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <h3>5G Network Analysis using OAIBOX</h3>
+            <span class="project-date">Feb 2025</span>
+          </div>
+          <p>Captured and analyzed network logs from UE, gNB, and core network, investigating PHY/MAC/RLC/PDCP layer interactions.</p>
+          <div class="project-tags">
+            <span class="project-tag">5G NR</span>
+            <span class="project-tag">OAIBOX</span>
+            <span class="project-tag">Quectel</span>
+            <span class="project-tag">Python</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>CMOS LNA Design (7RFSOI)</h3>
+            <span class="project-date">May 2019</span>
+          </div>
+          <p>Designed CMOS LNA achieving <1.2dB noise figure at 2.5 GHz using Cadence Spectre.</p>
+          <div class="project-tags">
+            <span class="project-tag">Cadence</span>
+            <span class="project-tag">RFIC</span>
+            <span class="project-tag">S-Parameters</span>
+            <span class="project-tag">LNA</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>Triple-Band Antenna for ISRO</h3>
+            <span class="project-date">Nov 2023</span>
+          </div>
+          <p>Designed circularly polarized antenna achieving 6 dBi gain with <2dB axial ratio for satellite communication.</p>
+          <div class="project-tags">
+            <span class="project-tag">Ansys HFSS</span>
+            <span class="project-tag">Antenna</span>
+            <span class="project-tag">RHCP</span>
+            <span class="project-tag">L1/L5/S-band</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>RF Receiver Design in AWR</h3>
+            <span class="project-date">May 2018</span>
+          </div>
+          <p>Designed multi-stage receiver with BPF, LNA, mixers. Validated IIP3, P1dB, and SFDR through simulation.</p>
+          <div class="project-tags">
+            <span class="project-tag">AWR</span>
+            <span class="project-tag">RF Design</span>
+            <span class="project-tag">System Analysis</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <a href="projects.html" class="btn-primary">View Full Projects Gallery →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2>Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3>Project Associate</h3>
+                <p class="company">ISRO/NMIT • Bengaluru, India</p>
+              </div>
+              <span class="period">Jul 2023 - Nov 2023</span>
+            </div>
+            <ul>
+              <li>Designed triple-band stacked patch antenna for satellite communication</li>
+              <li>Achieved 6 dBi gain with RHCP and <2dB axial ratio</li>
+              <li>Used Ansys HFSS for L1, L5, and S band optimization</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3>IoT Engineer</h3>
+                <p class="company">Datashrubs Solutions • Bengaluru, India</p>
+              </div>
+              <span class="period">Dec 2021 - Aug 2022</span>
+            </div>
+            <ul>
+              <li>Developed firmware using I2C/SPI/UART for smart water bottle</li>
+              <li>Increased testing success rate to 90%</li>
+              <li>Created BOMs and functional specifications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 5rem;">Education</h2>
+      <div class="education-grid">
+        <div class="edu-card">
+          <div class="edu-header">
+            <div>
+              <h3>MS in Wireless & Network Engineering</h3>
+              <p class="school">Northeastern University</p>
+              <p class="location">Boston, MA</p>
+            </div>
+            <div class="edu-right">
+              <p class="period">Expected Dec 2026</p>
+              <p class="gpa">GPA: 3.26</p>
+            </div>
+          </div>
+          <p class="note">Global Learner Award Scholarship</p>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-header">
+            <div>
+              <h3>MS in Electrical Engineering</h3>
+              <p class="school">Texas Tech University</p>
+              <p class="location">Lubbock, TX</p>
+            </div>
+            <div class="edu-right">
+              <p class="period">May 2019</p>
+              <p class="gpa">GPA: 3.3</p>
+            </div>
+          </div>
+          <p class="note">Russell H. Seacat Jr. Scholarship</p>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-header">
+            <div>
+              <h3>M.Tech in Communication Systems</h3>
+              <p class="school">Christ University</p>
+              <p class="location">Bengaluru, India</p>
+            </div>
+            <div class="edu-right">
+              <p class="period">May 2016</p>
+              <p class="gpa">GPA: 7.02</p>
+            </div>
+          </div>
+          <p class="note">Published DOI:10.1109/ICCSP.2016.7754490</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-content">
+        <h2>Let's Connect</h2>
+        <p>I'm currently seeking RFIC co-op opportunities and always open to discussing wireless engineering, 5G systems, or RF design projects.</p>
+        
+        <div class="contact-links">
+          <a href="mailto:ramaswamy.su@northeastern.edu" class="contact-link primary">
+            <i class="fas fa-envelope"></i>
+            <span>ramaswamy.su@northeastern.edu</span>
+          </a>
+          <a href="https://www.linkedin.com/in/supriya-ramaswamy" target="_blank" class="contact-link">
+            <i class="fab fa-linkedin"></i>
+            <span>linkedin.com/in/supriya-ramaswamy</span>
+          </a>
+          <a href="https://github.com/Supriya648" target="_blank" class="contact-link">
+            <i class="fab fa-github"></i>
+            <span>github.com/Supriya648</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Supriya Ramaswamy. Built with HTML, CSS, and JavaScript.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

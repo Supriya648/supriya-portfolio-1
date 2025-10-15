@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Gallery | Supriya Ramaswamy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+      color: #fff;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #60a5fa, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      margin-bottom: 2rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid rgba(59, 130, 246, 0.3);
+      border-radius: 10px;
+    }
+
+    .back-link:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.5);
+      transform: translateX(-5px);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.4s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-thumbnail i {
+      font-size: 5rem;
+      color: rgba(255, 255, 255, 0.3);
+      transition: all 0.3s;
+    }
+
+    .project-card:hover .project-thumbnail i {
+      transform: scale(1.2);
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .project-number {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-header {
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      color: #93c5fd;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .project-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-description {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .key-metrics {
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 3px solid #3b82f6;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 5px;
+    }
+
+    .key-metrics h4 {
+      color: #60a5fa;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .key-metrics ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .key-metrics li {
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding: 0.25rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .key-metrics li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #22d3ee;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      background: rgba(59, 130, 246, 0.2);
+      color: #93c5fd;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background: #3b82f6;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(59, 130, 246, 0.2);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+
+    .google-slides-section {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #93c5fd;
+    }
+
+    .slides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2rem;
+    }
+
+    .slide-container {
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.3s;
+    }
+
+    .slide-container:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-5px);
+    }
+
+    .slide-container h3 {
+      color: #60a5fa;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .slide-container iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .slides-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .project-actions {
+        flex-direction: column;
+      }
+
+      body {
+        padding: 1rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-card {
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.1s; }
+    .project-card:nth-child(2) { animation-delay: 0.2s; }
+    .project-card:nth-child(3) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Technical Projects Gallery</h1>
+      <p class="subtitle">RF/RFIC Design & Power Electronics</p>
+      <a href="portfolio-new.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Back to Portfolio
+      </a>
+    </header>
+
+    <!-- PDF Projects Section -->
+    <div class="projects-grid">
+      <!-- Project 1: Wireless Receiver -->
+      <div class="project-card">
+        <div class="project-thumbnail rf-design">
+          <div class="waveform-container">
+            <svg viewBox="0 0 400 200" style="width: 100%; height: 100%;">
+              <!-- Frequency spectrum visualization -->
+              <defs>
+                <linearGradient id="specGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:0.8" />
+                  <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.2" />
+                </linearGradient>
+              </defs>
+              <!-- Spectrum peaks -->
+              <rect x="80" y="80" width="8" height="100" fill="url(#specGrad)" opacity="0.3"/>
+              <rect x="120" y="40" width="12" height="140" fill="url(#specGrad)"/>
+              <rect x="160" y="60" width="10" height="120" fill="url(#specGrad)" opacity="0.5"/>
+              <rect x="200" y="30" width="14" height="150" fill="url(#specGrad)"/>
+              <rect x="240" y="70" width="10" height="110" fill="url(#specGrad)" opacity="0.4"/>
+              <!-- Grid lines -->
+              <line x1="50" y1="180" x2="350" y2="180" stroke="#60a5fa" stroke-width="2" opacity="0.3"/>
+              <text x="200" y="195" fill="#93c5fd" font-size="12" text-anchor="middle">5.8 GHz</text>
+              <text x="30" y="50" fill="#93c5fd" font-size="10">dBm</text>
+            </svg>
+          </div>
+          <div class="project-number">Project 01</div>
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h2 class="project-title">Wireless Receiver System Design</h2>
+            <div class="project-meta">
+              <span><i class="fas fa-calendar"></i> May 2018</span>
+              <span><i class="fas fa-map-marker-alt"></i> Texas Tech</span>
+            </div>
+          </div>
+          
+          <p class="project-description">
+            Designed and simulated a complete multi-stage RF receiver system in AWR including Band-Pass Filters, LNA, Image-Reject Filters, and Mixers. Performed theoretical hand calculations and validated results through AWR simulations.
+          </p>
+
+          <div class="key-metrics">
+            <h4>Key Performance Metrics</h4>
+            <ul>
+              <li>Noise Figure: 3.985 dB (simulated) vs 3.813 dB (calculated)</li>
+              <li>IIP3: -13.41 dBm with 8 dBm calculation variance</li>
+              <li>SFDR: 41.37 dB for optimized linearity</li>
+              <li>Operating Frequency: 5.8 GHz, 20 MHz BW</li>
+            </ul>
+          </div>
+
+          <div class="project-tags">
+            <span class="tag">AWR Microwave Office</span>
+            <span class="tag">RF System Design</span>
+            <span class="tag">IIP3 & P1dB</span>
+            <span class="tag">Spectral Analysis</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="#" class="btn btn-primary" onclick="alert('Upload your PDF to GitHub and link it here!')">
+              <i class="fas fa-eye"></i> View Presentation
+            </a>
+            <a href="#" class="btn btn-secondary" onclick="alert('Add download link after uploading PDF')">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: PTAT Temperature Sensor -->
+      <div class="project-card">
+        <div class="project-thumbnail ic-layout">
+          <svg viewBox="0 0 400 200" style="width: 100%; height: 100%;">
+            <!-- IC Layout simulation -->
+            <defs>
+              <pattern id="metal" patternUnits="userSpaceOnUse" width="20" height="20">
+                <rect width="20" height="20" fill="#7c3aed" opacity="0.3"/>
+                <rect width="18" height="18" x="1" y="1" fill="#a855f7" opacity="0.5"/>
+              </pattern>
+            </defs>
+            <!-- Layout blocks -->
+            <rect x="50" y="30" width="80" height="60" fill="url(#metal)" stroke="#c084fc" stroke-width="2"/>
+            <rect x="140" y="30" width="100" height="60" fill="url(#metal)" stroke="#c084fc" stroke-width="2"/>
+            <rect x="250" y="30" width="90" height="60" fill="url(#metal)" stroke="#c084fc" stroke-width="2"/>
+            <rect x="50" y="100" width="120" height="70" fill="url(#metal)" stroke="#c084fc" stroke-width="2"/>
+            <rect x="180" y="100" width="160" height="70" fill="url(#metal)" stroke="#c084fc" stroke-width="2"/>
+            <!-- Connection lines -->
+            <line x1="90" y1="90" x2="90" y2="100" stroke="#e9d5ff" stroke-width="2"/>
+            <line x1="190" y1="90" x2="190" y2="100" stroke="#e9d5ff" stroke-width="2"/>
+            <text x="200" y="195" fill="#c084fc" font-size="11" text-anchor="middle">AMI06 CMOS Layout</text>
+          </svg>
+          <div class="project-number">Project 02</div>
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h2 class="project-title">Design of a PTAT Temperature Sensor Circuit and Layout</h2>
+            <div class="project-meta">
+              <span><i class="fas fa-calendar"></i> Dec 2017</span>
+              <span><i class="fas fa-map-marker-alt"></i> Texas Tech University</span>
+            </div>
+          </div>
+          
+          <p class="project-description">
+            Designed a PTAT (Proportional-To-Absolute-Temperature) circuit using AMI06 CMOS process with sub-threshold CMOS transistors to reduce bias voltage and power consumption. Used relatively high gain OP-AMP to keep gate voltages of two subthreshold MOSFETs approximately the same, achieving low line sensitivity.
+          </p>
+
+          <div class="key-metrics">
+            <h4>Design Results</h4>
+            <ul>
+              <li>Temperature slope: 1040.2 to 1040.7 ppm/°C across supply voltages</li>
+              <li>Supply voltage tested: 1.6V, 2.3V, 3.0V with stable operation</li>
+              <li>Phase margin: 72.59° (3V), 75.47° (2.3V), 120.8° (1.6V)</li>
+              <li>Figure of Merit (FOM): 0.000401</li>
+            </ul>
+          </div>
+
+          <div class="project-tags">
+            <span class="tag">Cadence Virtuoso</span>
+            <span class="tag">AMI06 CMOS</span>
+            <span class="tag">Sub-threshold Design</span>
+            <span class="tag">IC Layout</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="#" class="btn btn-primary" onclick="alert('Upload your PDF to GitHub and link it here!')">
+              <i class="fas fa-eye"></i> View Presentation
+            </a>
+            <a href="#" class="btn btn-secondary" onclick="alert('Add download link after uploading PDF')">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Buck Converter -->
+      <div class="project-card">
+        <div class="project-thumbnail power-circuit">
+          <svg viewBox="0 0 400 200" style="width: 100%; height: 100%;">
+            <!-- Buck converter waveform -->
+            <defs>
+              <linearGradient id="pwmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0.3" />
+              </linearGradient>
+            </defs>
+            <!-- PWM waveform -->
+            <path d="M 50 150 L 50 50 L 100 50 L 100 150 L 130 150 L 130 50 L 180 50 L 180 150 L 210 150 L 210 50 L 260 50 L 260 150 L 290 150 L 290 50 L 340 50 L 340 150" 
+                  fill="none" stroke="#f97316" stroke-width="3" opacity="0.8"/>
+            <!-- Output voltage (smooth)-->
+            <path d="M 50 100 Q 100 95, 150 100 T 250 100 T 350 100" 
+                  fill="none" stroke="#22d3ee" stroke-width="3" opacity="0.9"/>
+            <!-- Labels -->
+            <text x="30" y="60" fill="#f97316" font-size="11">VGS</text>
+            <text x="30" y="105" fill="#22d3ee" font-size="11">VOUT</text>
+            <text x="200" y="190" fill="#fb923c" font-size="11" text-anchor="middle">80 kHz PWM @ 93% Efficiency</text>
+            <!-- Inductor symbol -->
+            <circle cx="370" cy="80" r="15" fill="none" stroke="#fbbf24" stroke-width="2"/>
+            <path d="M 360 80 Q 365 70, 370 80 Q 375 90, 380 80" fill="none" stroke="#fbbf24" stroke-width="2"/>
+          </svg>
+          <div class="project-number">Project 03</div>
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h2 class="project-title">Design and Test of an Asynchronous Buck Converter</h2>
+            <div class="project-meta">
+              <span><i class="fas fa-calendar"></i> Dec 2018</span>
+              <span><i class="fas fa-map-marker-alt"></i> Texas Tech University</span>
+            </div>
+          </div>
+          
+          <p class="project-description">
+            Designed a voltage-mode buck converter with input filter to reduce input ripple current. Used Type III compensator with MSP430G2235 microcontroller for feedback regulation and PWM control. Circuit was designed, simulated, assembled, and tested for functionality.
+          </p>
+
+          <div class="key-metrics">
+            <h4>Performance Results</h4>
+            <ul>
+              <li>Efficiency: 93% (exceeding 85% specification)</li>
+              <li>Input: 17-20V, Output: 14V at 1.167A into 12Ω load</li>
+              <li>Phase Margin: 48.9° (target >45°), Gain Margin: 22.4 dB</li>
+              <li>Output ripple: 60 mV, Input ripple: 175 mA</li>
+              <li>Switching frequency: 80 kHz, L=33µH, C=22µF</li>
+            </ul>
+          </div>
+
+          <div class="project-tags">
+            <span class="tag">Buck Converter</span>
+            <span class="tag">MSP430 MCU</span>
+            <span class="tag">LTspice Simulation</span>
+            <span class="tag">Type III Compensator</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="#" class="btn btn-primary" onclick="alert('Upload your PDF to GitHub and link it here!')">
+              <i class="fas fa-eye"></i> View Presentation
+            </a>
+            <a href="#" class="btn btn-secondary" onclick="alert('Add download link after uploading PDF')">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Slides Section -->
+    <div class="google-slides-section">
+      <h2 class="section-title">
+        <i class="fab fa-google"></i> Live Presentations
+      </h2>
+      <div class="slides-grid">
+        <div class="slide-container">
+          <h3><i class="fas fa-presentation"></i> RF Receiver System Analysis</h3>
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQee36dSuwR1TN2mJSQT8QQGQQ2QInmH145PZ396VPO-gEi6wMQAovNm42egkkFK_FdXnlVHQMtKv3d/embed?start=false&loop=false&delayms=3000" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+
+        <div class="slide-container">
+          <h3><i class="fas fa-presentation"></i> PTAT Temperature Sensor Design</h3>
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQaEIJoIXlclPfVtjpAsvp5-O7l5KR4iW6tiYFYLJZuko-Ci-or_OkQQI3nQU1wz9knZLII77ZLx_oL/embed?start=false&loop=false&delayms=3000" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
